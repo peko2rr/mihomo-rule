@@ -109,6 +109,8 @@ proxy-groups:
   - name: Stream
     type: select
     proxies:
+      - 次元雲
+      - ACA-family
       - Stream专用
       - HK
       - JP
@@ -405,7 +407,6 @@ proxy-groups:
     type: select
     proxies:
       - TW
-      - Proxy
       - HK
       - JP
       - SG
