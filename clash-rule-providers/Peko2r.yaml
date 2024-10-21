@@ -221,7 +221,7 @@ proxy-groups:
       - SG IPLC
       - US IPLC
       - DIRECT
-    icon: https://raw.githubusercontent.com/peko2r/clash_rule/master/icon/E-Hentai.png
+    icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/E-Hentai.png
 
   - name: Netflix
     type: select
@@ -294,7 +294,7 @@ proxy-groups:
       - KR
       - select1
       - select2
-    icon: https://raw.githubusercontent.com/peko2r/clash_rule/master/icon/Nintendo.png
+    icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/Nintendo.png
     hidden: true
 
   - name: Globalmedia
@@ -693,7 +693,7 @@ rule-providers:
   Myself:
     type: http
     behavior: classical
-    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2r/clash_rule/master/myself.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/myself.yaml"
     path: 
     interval: 86400
 
@@ -742,14 +742,14 @@ rule-providers:
   Emby:
     type: http
     behavior: classical
-    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2r/clash_rule/master/Emby.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/Emby.yaml"
     path: 
     interval: 86400
 
   E-h:
     type: http
     behavior: classical
-    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2r/clash_rule/master/E-h.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/E-h.yaml"
     path: 
     interval: 86400
 
@@ -805,7 +805,7 @@ rule-providers:
   AI:
     type: http
     behavior: classical
-    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2r/clash_rule/master/AI.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/AI.yaml"
     path: 
     interval: 86400
 
@@ -924,14 +924,14 @@ rule-providers:
   Direct:
     type: http
     behavior: classical
-    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2r/clash_rule/master/Direct.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/Direct.yaml"
     path:
     interval: 86400
     
   US:
     type: http
     behavior: classical
-    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2r/clash_rule/master/US.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/US.yaml"
     path:
     interval: 86400
     
