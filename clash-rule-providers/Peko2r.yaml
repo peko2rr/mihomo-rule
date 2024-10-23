@@ -1,4 +1,4 @@
-port: 7890 # http(s) 代理端口
+port: 7890 # http(s) 代理端口1
 socks-port: 7891 # socks4/4a/5 代理端口
 redir-port: 7892 # 透明代理端口，仅能代理 TCP 流量
 mixed-port: 7893 # 混合代理端口 http(s)+socks # 高优先级
