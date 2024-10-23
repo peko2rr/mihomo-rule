@@ -140,9 +140,10 @@ proxy-groups:
   - name: Emby
     type: select
     proxies:
-      - Emby专用
-      - DIRECT
+      - ACA-family
+      - 次元雲
       - Stream
+      - DIRECT
       - JP
       - SG
       - HK
@@ -517,16 +518,6 @@ proxy-groups:
       - PEKO2
     filter: ""
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
-
-  - name: Emby专用
-    type: url-test
-    url: "http://connectivitycheck.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 100
-    use:
-      - PEKO3
-    filter: ""
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Emby.png
 
   - name: HK
     type: url-test
