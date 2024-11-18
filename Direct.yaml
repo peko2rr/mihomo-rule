@@ -1,0 +1,28 @@
+payload:
+  - DOMAIN,pphimalayanrt.com
+  - PROCESS-NAME,gamingservices.exe
+  - PROCESS-NAME,RiotClientServices.exe
+  - PROCESS-NAME,完美世界竞技平台.exe
+  - PROCESS-NAME,cs2.exe
+  - DOMAIN-KEYWORD,valorant
+  - DOMAIN-KEYWORD,Riot
+  - DOMAIN,ipv4.egdownload.fastly-edge.com
+  - IP-CIDR,115.238.185.234/32
+  - IP-CIDR,23.49.104.184/32
+  - DOMAIN,ssl.ptlogin2.qq.com
+  - DOMAIN,dhs752jdkpq3ns.catlinks.co.uk
+  - PROCESS-NAME,NMS.exe
+  - PROCESS-NAME,project8.exe
+  - PROCESS-NAME,VALORANT.exe
+  - PROCESS-NAME,无畏契约登录器.exe
+  - PROCESS-NAME,CrossProxy.exe
+  - PROCESS-NAME,UnrealCEFSubProcess.exe
+  - PROCESS-NAME,VALORANT-Win64-Shipping.exe
+  - PROCESS-NAME,vgtray.exe
+  - PROCESS-NAME,RvControlSvc.exe
+  - PROCESS-NAME,Plain Craft Launcher 2.exe
+  - PROCESS-NAME,javaw.exe
+  - PROCESS-NAME,RvRvpnGui.exe
+  - PROCESS-NAME,BitComet_x64.exe
+  - DOMAIN-KEYWORD,bitcomet
+  

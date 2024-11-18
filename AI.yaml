@@ -1,0 +1,6 @@
+payload:
+  - DOMAIN,www.phind.com
+  - DOMAIN,www.perplexity.ai
+  - DOMAIN,s0.dev
+  - DOMAIN,app.chatvid.ai
+  - DOMAIN-KEYWORD,anthropic
