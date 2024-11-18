@@ -152,6 +152,8 @@ dns:
     - "a247c.playfabapi.com"
     - "westus.tts.speech.microsoft.com"
     - "api.gameanalytics.com"
+    - "repeater.bitcomet.com"
+    - "canyouseeme.org"
 
 
   nameserver:                        #默认DNS服务器，支持udp/tcp/dot/doh/doq
