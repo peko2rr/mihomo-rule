@@ -25,4 +25,4 @@ payload:
   - PROCESS-NAME,RvRvpnGui.exe
   - PROCESS-NAME,BitComet_x64.exe
   - DOMAIN-KEYWORD,bitcomet
-  
+  - PROCESS-NAME,qbittorrent.exe
