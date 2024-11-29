@@ -4,7 +4,7 @@ redir-port: 7892 # 透明代理端口，仅能代理 TCP 流量
 mixed-port: 7893 # 混合代理端口 http(s)+socks # 高优先级
 mode: rule # 运行模式
 unified-delay: true # 统一延迟 # 更换延迟计算方式,去除握手等额外延迟
-tcp-concurrent: true # TCP并发
+tcp-concurrent: false # TCP并发
 find-process-mode: strict
 geodata-mode: true        #使用geoip.dat数据库(默认：false使用mmdb数据库)
 geodata-loader: standard # GEO文件加载模式
@@ -39,7 +39,7 @@ sniffer:                         #【Meta专属】sniffer域名嗅探器
 dns:
   enable: true
   listen: 127.0.0.1:8853
-  ipv6: false
+  ipv6: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -197,9 +197,8 @@ proxy-groups:
   - name: Stream
     type: select
     proxies:
-      - ACA-family
-      - 次元雲
       - Stream专用
+      - ACA-family
       - HK
       - JP
       - TW
@@ -228,9 +227,9 @@ proxy-groups:
   - name: Emby
     type: select
     proxies:
-      - Stream
+      - Emby专用
+      - Stream专用
       - ACA-family
-      - 次元雲
       - DIRECT
       - JP
       - SG
@@ -304,6 +303,7 @@ proxy-groups:
     type: select
     proxies:
       - Proxy
+      - US
       - TW IPLC
       - HK IPLC
       - JP IPLC
@@ -564,39 +564,6 @@ proxy-groups:
       - DIRECT
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/AdBlock.png
 
-  - name: Ayanami
-    type: url-test
-    url: "http://connectivitycheck.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 100
-    lazy: true
-    use:
-      - PEKO1
-    filter: ""
-    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png
-    
-  - name: 次元雲
-    type: url-test
-    url: "http://connectivitycheck.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 100
-    lazy: true
-    use:
-      - PEKO2
-    filter: ""
-    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Ciyuanyun.png
-
-  - name: ACA-family
-    type: url-test
-    url: "http://connectivitycheck.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 100
-    lazy: true
-    use:
-      - PEKO3
-    filter: ""
-    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
-
   - name: Stream专用
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
@@ -604,29 +571,39 @@ proxy-groups:
     tolerance: 100
     use:
       - PEKO2
-    filter: ""
+    filter: "0.2"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+
+  - name: Emby专用
+    type: url-test
+    url: "http://connectivitycheck.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 100
+    use:
+      - PEKO3
+    filter: "Singapore|Taiwan|United States"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
   - name: HK
-    type: url-test
+    type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
     tolerance: 100
     use:
-      - PEKO3
       - PEKO2
-    filter: "香港|Hong Kong"
+      - PEKO3
+    filter: "香港|(?=.*Hong Kong)(?=.*HA)|HongKong 0.2x|(?=.*0.4)(?=.*Hong Kong)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/HK02.png
 
   - name: SG
-    type: url-test
+    type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
     tolerance: 100
     use:
-      - PEKO3
       - PEKO2
-    filter: "新加坡A|Singapore"
+      - PEKO3
+    filter: "新加坡|(?=.*Singapore)(?=.*HA)|(?=.*0.2)(?=.*Singapore)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/SG.png
 
   - name: JP
@@ -636,7 +613,6 @@ proxy-groups:
     tolerance: 100
     use:
       - PEKO3
-      - PEKO2
     filter: "日本|Japan"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/JP.png
     hidden: true
@@ -649,7 +625,7 @@ proxy-groups:
     use:
       - PEKO2
       - PEKO3
-    filter: "台湾|Taiwan"
+    filter: "台湾|(?=.*Taiwan)(?=.*HA)|(?=.*0.2)(?=.*Taiwan)|(?=.*0.4)(?=.*Taiwan)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/TW.png
 
   - name: US
@@ -658,7 +634,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     use:
-      - PEKO2
       - PEKO3
     filter: "美国|United States"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png
@@ -670,7 +645,6 @@ proxy-groups:
     tolerance: 100
     use:
       - PEKO3
-      - PEKO2
     filter: "荷兰|德国"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/DE.png
     hidden: true
@@ -681,7 +655,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     use:
-      - PEKO2
+      - PEKO3
     filter: "韩国"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/KR.png
     hidden: true
@@ -746,18 +720,50 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png
     hidden: true
 
+  - name: Ayanami_512G
+    type: url-test
+    url: "http://connectivitycheck.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 100
+    lazy: true
+    use:
+      - PEKO1
+    filter: ""
+    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png
+    
+  - name: Ayanami_30G
+    type: url-test
+    url: "http://connectivitycheck.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 100
+    lazy: true
+    use:
+      - PEKO2
+    filter: ""
+    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png
+
+  - name: ACA-family
+    type: url-test
+    url: "http://connectivitycheck.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 100
+    lazy: true
+    use:
+      - PEKO3
+    filter: ""
+    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
 
 
 proxy-providers:
   PEKO1:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/d8bcadbd4361ffc014f5b93ce4964554a0f85a83/Ayanami
+    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/389fc004478c1f1df11d9bd840c2e63f144e7c86/Ayanami_512G
     interval: 86400
     path:
 
   PEKO2:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/9b4fb0eb66690198b045a312471851c52a73b787/ciyuanyun
+    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/389fc004478c1f1df11d9bd840c2e63f144e7c86/Ayanami_30G
     interval: 86400
     path:
 
