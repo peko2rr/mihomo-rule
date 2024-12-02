@@ -1075,9 +1075,9 @@ rules:
  - RULE-SET,Globalmedia,Globalmedia
  - RULE-SET,Nintendo,Nintendo
  - RULE-SET,Proxy,Proxy
- - RULE-SET,direct,DIRECT
  - RULE-SET,lancidr,DIRECT
  - RULE-SET,cncidr,DIRECT
  - GEOIP,LAN,DIRECT,no-resolve
  - GEOIP,CN,DIRECT,no-resolve
+ - RULE-SET,direct,DIRECT
  - MATCH,Proxy
