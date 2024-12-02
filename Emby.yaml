@@ -1,8 +1,8 @@
 payload:
 #Emby进程
   - PROCESS-NAME,electron.exe
-#冰镇西瓜
-  - DOMAIN,1024.name
+#Nebula-Media
+  - DOMAIN,emby.nebula-media.org
 #Plumber
   - DOMAIN,tiancheng.boaz.cf
   - DOMAIN,emby.boaz.cf
@@ -82,3 +82,5 @@ payload:
   - DOMAIN,cdn.lyrebirdemby.com
 #Tanhua
   - DOMAIN,www.tanhuatv.site
+#ikun
+  - DOMAIN,music.xxxh.de
