@@ -448,19 +448,6 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Microsoft.png
     hidden: true
 
-  - name: Bilibili
-    type: select
-    proxies:
-      - DIRECT
-      - TW
-      - HK
-      - TW IPLC
-      - HK IPLC
-      - select1
-      - select2
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Bilibili.png
-    hidden: true
-
   - name: Apple
     type: select
     proxies:
@@ -918,20 +905,6 @@ rule-providers:
     path:
     interval: 86400
 
-  BilibiliHMT:
-    type: http
-    behavior: classical
-    url: "https://mirror.ghproxy.com/raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/BilibiliHMT.yaml"
-    path:
-    interval: 86400
-
-  Bilibili:
-    type: http
-    behavior: classical
-    url: "https://mirror.ghproxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BiliBili/BiliBili.yaml"
-    path:
-    interval: 86400
-
   Spotify:
     type: http
     behavior: classical
@@ -1040,6 +1013,10 @@ rule-providers:
 
 rules:
  - RULE-SET,AWAvenue,AD
+ - RULE-SET,Telegram,Telegram
+ - RULE-SET,Twitch,Twitch
+ - RULE-SET,YouTube,YouTube
+ - RULE-SET,Spotify,Spotify
  - RULE-SET,E-h,E-h
  - RULE-SET,Myself,Proxy
  - RULE-SET,applications,DIRECT
@@ -1055,22 +1032,16 @@ rules:
  - RULE-SET,Game,Game
  - RULE-SET,Bing,Bing
  - RULE-SET,AppleTV,AppleTV
- - RULE-SET,Telegram,Telegram
  - RULE-SET,Discord,Discord
  - RULE-SET,OpenAi,AI
  - RULE-SET,BardAi,AI
  - RULE-SET,AI,AI
- - RULE-SET,Twitch,Twitch
- - RULE-SET,YouTube,YouTube
  - RULE-SET,Netflix,Netflix
  - RULE-SET,Disney,Disney
  - RULE-SET,Bahamut,Bahamut
  - RULE-SET,Apple,Apple
  - RULE-SET,Microsoft,Microsoft
  - RULE-SET,Google,Google
- - RULE-SET,BilibiliHMT,Bilibili
- - RULE-SET,Bilibili,Bilibili
- - RULE-SET,Spotify,Spotify
  - RULE-SET,CNmedia,CNmedia
  - RULE-SET,Globalmedia,Globalmedia
  - RULE-SET,Nintendo,Nintendo
