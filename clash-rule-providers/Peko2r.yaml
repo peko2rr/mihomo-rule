@@ -551,27 +551,28 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
-      - PEKO2
-    filter: "0.2"
+      - PEKO4
+    filter: "YXVM-0倍率|YXVM-1倍率|Light-1.0倍率|Hinet-0.5倍率"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
   - name: Emby专用
-    type: url-test
+    type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
+      - PEKO4
       - PEKO3
-    filter: "Singapore|Taiwan|United States"
+    filter: "(?=.*HK)(?=.*YXVM-0倍率)|Singapore"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
   - name: HK
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
       - PEKO2
       - PEKO3
@@ -582,7 +583,7 @@ proxy-groups:
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
       - PEKO2
       - PEKO3
@@ -593,7 +594,7 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
       - PEKO3
     filter: "日本|Japan"
@@ -604,7 +605,7 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
       - PEKO2
       - PEKO3
@@ -615,17 +616,18 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
+      - PEKO4
       - PEKO3
-    filter: "美国|United States"
+    filter: "美国|United States|(?=.*US)(?=.*0.8)|(?=.*US)(?=.*0.5)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png
 
   - name: EU
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
       - PEKO3
     filter: "荷兰|德国"
@@ -636,7 +638,7 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     use:
       - PEKO3
     filter: "韩国"
@@ -647,7 +649,7 @@ proxy-groups:
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO1
@@ -659,7 +661,7 @@ proxy-groups:
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO1
@@ -671,7 +673,7 @@ proxy-groups:
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO1
@@ -683,7 +685,7 @@ proxy-groups:
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO1
@@ -695,7 +697,7 @@ proxy-groups:
     type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO1
@@ -707,7 +709,7 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO1
@@ -718,7 +720,7 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO2
@@ -729,12 +731,23 @@ proxy-groups:
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
-    tolerance: 100
+    tolerance: 60
     lazy: true
     use:
       - PEKO3
     filter: ""
     icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
+
+  - name: CTC-02
+    type: url-test
+    url: "http://connectivitycheck.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 60
+    lazy: true
+    use:
+      - PEKO4
+    filter: ""
+    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/CTC.png
 
 
 proxy-providers:
@@ -753,6 +766,12 @@ proxy-providers:
   PEKO3:
     type: http
     url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/fc8aec93b9b1650aad6a625bf46a4ee0664ecb85/ACA
+    interval: 86400
+    path:
+
+  PEKO4:
+    type: http
+    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/9409a6f09b453574dc046225c09b5a15f6a61713/CTC-02
     interval: 86400
     path:
 
