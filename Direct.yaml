@@ -23,6 +23,5 @@ payload:
   - PROCESS-NAME,Plain Craft Launcher 2.exe
   - PROCESS-NAME,javaw.exe
   - PROCESS-NAME,RvRvpnGui.exe
-  - PROCESS-NAME,BitComet_x64.exe
   - DOMAIN-KEYWORD,bitcomet
   - PROCESS-NAME,qbittorrent.exe
