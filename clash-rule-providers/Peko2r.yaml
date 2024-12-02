@@ -1013,13 +1013,13 @@ rule-providers:
 
 rules:
  - RULE-SET,AWAvenue,AD
+ - RULE-SET,applications,DIRECT
  - RULE-SET,Telegram,Telegram
  - RULE-SET,Twitch,Twitch
  - RULE-SET,YouTube,YouTube
  - RULE-SET,Spotify,Spotify
  - RULE-SET,E-h,E-h
  - RULE-SET,Myself,Proxy
- - RULE-SET,applications,DIRECT
  - DOMAIN,clash.razord.top,DIRECT
  - DOMAIN,yacd.haishan.me,DIRECT
  - RULE-SET,Download,DIRECT
