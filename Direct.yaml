@@ -12,9 +12,6 @@ payload:
   - DOMAIN,ssl.ptlogin2.qq.com
   - DOMAIN,dhs752jdkpq3ns.catlinks.co.uk
   - PROCESS-NAME,NMS.exe
-  - PROCESS-NAME,project8.exe
-  - PROCESS-NAME,VALORANT.exe
-  - PROCESS-NAME,无畏契约登录器.exe
   - PROCESS-NAME,CrossProxy.exe
   - PROCESS-NAME,UnrealCEFSubProcess.exe
   - PROCESS-NAME,VALORANT-Win64-Shipping.exe
