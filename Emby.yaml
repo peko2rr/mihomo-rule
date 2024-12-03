@@ -4,9 +4,9 @@ payload:
 #Nebula-Media
   - DOMAIN,emby.nebula-media.org
 #Plumber
-  - DOMAIN,tiancheng.boaz.cf
-  - DOMAIN,emby.boaz.cf
-  - DOMAIN,emby.910427.xyz:443
+  - DOMAIN,emby.233988.xyz
+  - DOMAIN,nh.910427.xyz
+  - DOMAIN,poxi.233988.xyz
 #misty
   - DOMAIN,misty.cx
 #卡戎
