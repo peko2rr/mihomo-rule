@@ -554,7 +554,7 @@ proxy-groups:
     tolerance: 60
     use:
       - PEKO4
-    filter: "YXVM-0倍率|YXVM-1倍率|Light-1.0倍率|Hinet-0.5倍率"
+    filter: "YXVM-0倍率|YXVM-1倍率|xTom-1.0倍率|Hinet-0.5倍率"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
   - name: Emby专用
@@ -565,7 +565,7 @@ proxy-groups:
     use:
       - PEKO4
       - PEKO3
-    filter: "(?=.*HK)(?=.*YXVM-0倍率)|Singapore"
+    filter: "(?=.*HK)(?=.*YXVM-0倍率)|(?=.*HK)(?=.*Claw-0.3倍率)|Singapore"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
   - name: HK
@@ -613,7 +613,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/TW.png
 
   - name: US
-    type: url-test
+    type: fallback
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
     tolerance: 60
