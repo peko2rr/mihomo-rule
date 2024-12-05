@@ -402,17 +402,16 @@ proxy-groups:
   - name: AI
     type: select
     proxies:
-      - US
-      - HK IPLC
       - JP IPLC
-      - SG IPLC
+      - US
       - US IPLC
+      - HK IPLC
+      - SG IPLC
       - Proxy
       - TW
       - HK
       - JP
       - SG
-      - KR
       - select1
       - select2
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png
@@ -679,7 +678,7 @@ proxy-groups:
       - PEKO1
     filter: "(?=.*Japan)(?=.*沪IPLC)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/JP.png
-    hidden: true
+    hidden: false
 
   - name: TW IPLC
     type: fallback
