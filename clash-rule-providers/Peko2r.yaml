@@ -24,7 +24,7 @@ tun:
   auto-route: true
   auto-detect-interface: true
 sniffer:                         #【Meta专属】sniffer域名嗅探器
-  enable: true                   #嗅探开关
+  enable: false                   #嗅探开关
   parse-pure-ip: true
   sniff:
     TLS:
@@ -553,7 +553,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO4
+      - PEKO3
     filter: "YXVM-0倍率|YXVM-1倍率|xTom-1.0倍率|Hinet-0.5倍率"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
@@ -563,9 +563,9 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO4
       - PEKO3
-    filter: "(?=.*HK)(?=.*YXVM-0倍率)|(?=.*HK)(?=.*Claw-0.3倍率)|Singapore"
+      - PEKO4
+    filter: "(?=.*HK)(?=.*YXVM-0倍率)|(?=.*HK)(?=.*Claw-0.3倍率)|Singapore|0.01"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
   - name: HK
@@ -575,7 +575,7 @@ proxy-groups:
     tolerance: 60
     use:
       - PEKO2
-      - PEKO3
+      - PEKO4
     filter: "香港|(?=.*Hong Kong)(?=.*HA)|HongKong 0.2x|(?=.*0.4)(?=.*Hong Kong)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/HK02.png
 
@@ -586,7 +586,7 @@ proxy-groups:
     tolerance: 60
     use:
       - PEKO2
-      - PEKO3
+      - PEKO4
     filter: "新加坡|(?=.*Singapore)(?=.*HA)|(?=.*0.2)(?=.*Singapore)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/SG.png
 
@@ -596,7 +596,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO3
+      - PEKO4
     filter: "日本|Japan"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/JP.png
     hidden: true
@@ -608,7 +608,7 @@ proxy-groups:
     tolerance: 60
     use:
       - PEKO2
-      - PEKO3
+      - PEKO4
     filter: "台湾|(?=.*Taiwan)(?=.*HA)|(?=.*0.2)(?=.*Taiwan)|(?=.*0.4)(?=.*Taiwan)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/TW.png
 
@@ -618,8 +618,8 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO4
       - PEKO3
+      - PEKO4
     filter: "美国|United States|(?=.*US)(?=.*0.8)|(?=.*US)(?=.*0.5)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png
 
@@ -629,7 +629,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO3
+      - PEKO4
     filter: "荷兰|德国"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/DE.png
     hidden: true
@@ -640,7 +640,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO3
+      - PEKO4
     filter: "韩国"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/KR.png
     hidden: true
@@ -653,7 +653,7 @@ proxy-groups:
     lazy: true
     use:
       - PEKO1
-    filter: "深港|Hong Kong  IPLC|HKBN"
+    filter: "深港|(?=.*Hong Kong)(?=.*IPLC)|HKBN"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/HK02.png
     hidden: true
 
@@ -665,7 +665,7 @@ proxy-groups:
     lazy: true
     use:
       - PEKO1
-    filter: "Singapore  IPLC"
+    filter: "(?=.*Singapore)(?=.*IPLC)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/SG.png
     hidden: true
 
@@ -677,7 +677,7 @@ proxy-groups:
     lazy: true
     use:
       - PEKO1
-    filter: "Japan  沪日IPLC"
+    filter: "(?=.*Japan)(?=.*沪IPLC)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/JP.png
     hidden: true
 
@@ -689,7 +689,7 @@ proxy-groups:
     lazy: true
     use:
       - PEKO1
-    filter: "Taiwan  IPLC"
+    filter: "(?=.*Taiwan)(?=.*IPLC)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/TW.png
     hidden: true
 
@@ -701,7 +701,7 @@ proxy-groups:
     lazy: true
     use:
       - PEKO1
-    filter: "United States  沪日IPLC"
+    filter: "(?=.*United States)(?=.*沪IPLC)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png
     hidden: true
 
@@ -727,7 +727,7 @@ proxy-groups:
     filter: ""
     icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png
 
-  - name: ACA-family
+  - name: CTC-02
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
@@ -736,9 +736,9 @@ proxy-groups:
     use:
       - PEKO3
     filter: ""
-    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
+    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/CTC.png
 
-  - name: CTC-02
+  - name: ACA-family
     type: url-test
     url: "http://connectivitycheck.gstatic.com/generate_204"
     interval: 300
@@ -747,7 +747,7 @@ proxy-groups:
     use:
       - PEKO4
     filter: ""
-    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/CTC.png
+    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
 
 
 proxy-providers:
@@ -765,13 +765,13 @@ proxy-providers:
 
   PEKO3:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/fc8aec93b9b1650aad6a625bf46a4ee0664ecb85/ACA
+    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/9409a6f09b453574dc046225c09b5a15f6a61713/CTC-02
     interval: 86400
     path:
 
   PEKO4:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/9409a6f09b453574dc046225c09b5a15f6a61713/CTC-02
+    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/3509fd291947f3260709e12712dce7c588c0bda5/ACA
     interval: 86400
     path:
 
