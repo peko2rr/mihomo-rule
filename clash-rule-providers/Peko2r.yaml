@@ -237,20 +237,22 @@ proxy-groups:
       - select2
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Emby.png
 
-  - name: Game
+  - name: AI
     type: select
     proxies:
+      - JP IPLC
+      - US
+      - US IPLC
+      - HK IPLC
+      - SG IPLC
       - Proxy
-      - DIRECT
       - TW
       - HK
       - JP
       - SG
-      - US
-      - KR
       - select1
       - select2
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Game.png
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png
 
   - name: Spotify
     type: select
@@ -266,6 +268,34 @@ proxy-groups:
       - select1
       - select2
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Spotify.png
+
+  - name: Game
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+      - TW
+      - HK
+      - JP
+      - SG
+      - US
+      - KR
+      - select1
+      - select2
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Game.png
+
+  - name: E-h
+    type: select
+    proxies:
+      - Proxy
+      - US
+      - TW IPLC
+      - HK IPLC
+      - JP IPLC
+      - SG IPLC
+      - US IPLC
+      - DIRECT
+    icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/E-Hentai.png
 
   - name: Google
     type: select
@@ -294,19 +324,6 @@ proxy-groups:
       - select1
       - select2
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Youtube.png
-
-  - name: E-h
-    type: select
-    proxies:
-      - Proxy
-      - US
-      - TW IPLC
-      - HK IPLC
-      - JP IPLC
-      - SG IPLC
-      - US IPLC
-      - DIRECT
-    icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/E-Hentai.png
 
   - name: Netflix
     type: select
@@ -398,23 +415,6 @@ proxy-groups:
       - DIRECT
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/GMedia.png
     hidden: true
-
-  - name: AI
-    type: select
-    proxies:
-      - JP IPLC
-      - US
-      - US IPLC
-      - HK IPLC
-      - SG IPLC
-      - Proxy
-      - TW
-      - HK
-      - JP
-      - SG
-      - select1
-      - select2
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png
 
   - name: Bing
     type: select
