@@ -752,25 +752,25 @@ proxy-groups:
 proxy-providers:
   PEKO1:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/2098c6c5b17fbe2c285c8b991e9ba0214af87f06/Ayanami_512G
+    url: 
     interval: 86400
     path:
 
   PEKO2:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/2098c6c5b17fbe2c285c8b991e9ba0214af87f06/Ayanami_30G
+    url: 
     interval: 86400
     path:
 
   PEKO3:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/9409a6f09b453574dc046225c09b5a15f6a61713/CTC-02
+    url: 
     interval: 86400
     path:
 
   PEKO4:
     type: http
-    url: https://gist.githubusercontent.com/peko2r/e4cd4363d3d7e7e17c26ccb9d70d69a4/raw/3509fd291947f3260709e12712dce7c588c0bda5/ACA
+    url: 
     interval: 86400
     path:
 
