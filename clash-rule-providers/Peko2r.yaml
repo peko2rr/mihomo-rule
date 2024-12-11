@@ -237,7 +237,7 @@ proxy-groups:
       - select2
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Emby.png
 
-  - name: AI
+  - name: OpenAi
     type: select
     proxies:
       - JP IPLC
@@ -324,6 +324,23 @@ proxy-groups:
       - select1
       - select2
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Youtube.png
+
+  - name: AI
+    type: select
+    proxies:
+      - US
+      - JP IPLC
+      - US IPLC
+      - HK IPLC
+      - SG IPLC
+      - Proxy
+      - TW
+      - HK
+      - JP
+      - SG
+      - select1
+      - select2
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png
 
   - name: Netflix
     type: select
@@ -552,7 +569,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO3
+      - PEKO2
     filter: "YXVM-0倍率|YXVM-1倍率|xTom-1.0倍率|Hinet-0.5倍率"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
@@ -562,8 +579,8 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
+      - PEKO2
       - PEKO3
-      - PEKO4
     filter: "(?=.*HK)(?=.*YXVM-0倍率)|(?=.*HK)(?=.*Claw-0.3倍率)|Singapore|0.01"
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 
@@ -574,7 +591,8 @@ proxy-groups:
     tolerance: 60
     use:
       - PEKO2
-      - PEKO4
+      - PEKO1
+      - PEKO3
     filter: "香港|(?=.*Hong Kong)(?=.*HA)|HongKong 0.2x|(?=.*0.4)(?=.*Hong Kong)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/HK02.png
 
@@ -584,8 +602,8 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO2
-      - PEKO4
+      - PEKO1
+      - PEKO3
     filter: "新加坡|(?=.*Singapore)(?=.*HA)|(?=.*0.2)(?=.*Singapore)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/SG.png
 
@@ -595,7 +613,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO4
+      - PEKO3
     filter: "日本|Japan"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/JP.png
     hidden: true
@@ -606,8 +624,8 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO2
-      - PEKO4
+      - PEKO1
+      - PEKO3
     filter: "台湾|(?=.*Taiwan)(?=.*HA)|(?=.*0.2)(?=.*Taiwan)|(?=.*0.4)(?=.*Taiwan)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/TW.png
 
@@ -617,8 +635,8 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
+      - PEKO2
       - PEKO3
-      - PEKO4
     filter: "美国|United States|(?=.*US)(?=.*0.8)|(?=.*US)(?=.*0.5)"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png
 
@@ -628,7 +646,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO4
+      - PEKO3
     filter: "荷兰|德国"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/DE.png
     hidden: true
@@ -639,7 +657,7 @@ proxy-groups:
     interval: 300
     tolerance: 60
     use:
-      - PEKO4
+      - PEKO3
     filter: "韩国"
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/KR.png
     hidden: true
@@ -714,17 +732,6 @@ proxy-groups:
       - PEKO1
     filter: ""
     icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png
-    
-  - name: Ayanami_30G
-    type: url-test
-    url: "http://connectivitycheck.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 60
-    lazy: true
-    use:
-      - PEKO2
-    filter: ""
-    icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png
 
   - name: CTC-02
     type: url-test
@@ -733,7 +740,7 @@ proxy-groups:
     tolerance: 60
     lazy: true
     use:
-      - PEKO3
+      - PEKO2
     filter: ""
     icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/CTC.png
 
@@ -744,7 +751,7 @@ proxy-groups:
     tolerance: 60
     lazy: true
     use:
-      - PEKO4
+      - PEKO3
     filter: ""
     icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
 
@@ -763,12 +770,6 @@ proxy-providers:
     path:
 
   PEKO3:
-    type: http
-    url: 
-    interval: 86400
-    path:
-
-  PEKO4:
     type: http
     url: 
     interval: 86400
@@ -1051,7 +1052,7 @@ rules:
  - RULE-SET,Bing,Bing
  - RULE-SET,AppleTV,AppleTV
  - RULE-SET,Discord,Discord
- - RULE-SET,OpenAi,AI
+ - RULE-SET,OpenAi,OpenAi
  - RULE-SET,BardAi,AI
  - RULE-SET,AI,AI
  - RULE-SET,Netflix,Netflix
