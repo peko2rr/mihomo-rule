@@ -11,6 +11,7 @@ payload:
   - IP-CIDR,23.49.104.184/32
   - DOMAIN,ssl.ptlogin2.qq.com
   - DOMAIN,dhs752jdkpq3ns.catlinks.co.uk
+  - PROCESS-NAME,TASLogin64.exe
   - PROCESS-NAME,NMS.exe
   - PROCESS-NAME,CrossProxy.exe
   - PROCESS-NAME,UnrealCEFSubProcess.exe
