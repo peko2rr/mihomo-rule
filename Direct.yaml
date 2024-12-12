@@ -23,5 +23,6 @@ payload:
   - DOMAIN-KEYWORD,bitcomet
   - PROCESS-NAME,qbittorrent.exe
   - PROCESS-NAME,SCUM.exe
+  - PROCESS-NAME,scum_launcher.exe
   - PROCESS-NAME,leishenSdk.exe
   - PROCESS-NAME,GameBarPresenceWriter.exe
