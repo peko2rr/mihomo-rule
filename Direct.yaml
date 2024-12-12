@@ -24,3 +24,4 @@ payload:
   - PROCESS-NAME,qbittorrent.exe
   - PROCESS-NAME,SCUM.exe
   - PROCESS-NAME,leishenSdk.exe
+  - PROCESS-NAME,GameBarPresenceWriter.exe
