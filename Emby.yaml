@@ -38,9 +38,8 @@ payload:
   - DOMAIN,drei.bgka.me
   - DOMAIN,s3.bgka.me
 #jms
-  - DOMAIN,cf1.jmsuper.com
-  - DOMAIN,cf2.jmsooo.com
-  - DOMAIN,cf2.jmsuper.com
+  - DOMAIN,mini.jmsuper.com
+  - DOMAIN,nano.jmsuper.com
 #star-cat
   - DOMAIN,flare.catlinks.co.uk
   - DOMAIN,xxx.887711.xyz
