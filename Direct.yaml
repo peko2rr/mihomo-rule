@@ -26,3 +26,4 @@ payload:
   - PROCESS-NAME,scum_launcher.exe
   - PROCESS-NAME,leishenSdk.exe
   - PROCESS-NAME,GameBarPresenceWriter.exe
+  - DOMAIN,tdck.fun
