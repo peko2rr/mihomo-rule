@@ -4,3 +4,4 @@ payload:
   - DOMAIN,s0.dev
   - DOMAIN,app.chatvid.ai
   - DOMAIN-KEYWORD,anthropic
+  - DOMAIN,kagi.com
