@@ -27,3 +27,5 @@ payload:
   - PROCESS-NAME,leishenSdk.exe
   - PROCESS-NAME,GameBarPresenceWriter.exe
   - DOMAIN,tdck.fun
+  - PROCESS-NAME,QQ.exe
+  - PROCESS-NAME,WeMeetApp.exe
