@@ -30,3 +30,5 @@ payload:
   - PROCESS-NAME,QQ.exe
   - PROCESS-NAME,WeMeetApp.exe
   - PROCESS-NAME,WMExternal.exe
+  - PROCESS-NAME,HeyboxChat.exe
+  - DOMAIN,service-aggregation-layer-subs.juno.ea.com
