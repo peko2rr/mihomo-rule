@@ -75,8 +75,8 @@ dns:
 proxies:
 
 proxy-groups-config:
-  Streamf: &Streamf "YXVM-0倍率|Hinet-0.5倍率"
-  Embyf: &Embyf "(?=.*HK)(?=.*YXVM-0倍率)|(?=.*HK)(?=.*Claw-0.3倍率)|TW-A-Hinet-0.5倍率|US-A-Saltyfish-0.5倍率"
+  Streamf: &Streamf "(?=.*JP)(?=.*YXVM)|Hinet-0.5倍率"
+  Embyf: &Embyf "(?=.*HK)(?=.*Claw)|HK-A-YXVM-0.1倍率|US-A-Sixty-0.1倍率"
   HK: &HK "香港|(?=.*Hong Kong)(?=.*TKV)"
   SG: &SG "新加坡|(?=.*Singapore)(?=.*TKV)"
   JP: &JP "日本|(?=.*Japan)(?=.*TKV)"
