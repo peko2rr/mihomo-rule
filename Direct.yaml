@@ -32,5 +32,3 @@ payload:
   - PROCESS-NAME,WMExternal.exe
   - PROCESS-NAME,HeyboxChat.exe
   - DOMAIN,service-aggregation-layer-subs.juno.ea.com
-  #emby
-  - IP-CIDR,167.114.64.176/32,DIRECT
