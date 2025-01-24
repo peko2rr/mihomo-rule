@@ -71,6 +71,7 @@ payload:
   - DOMAIN,pilipili.club
   - DOMAIN,css.pilipili.club:443
   - DOMAIN,manga.pilipiliultra.com
+  - IP-CIDR,167.114.64.176/32
 #特卡
   - DOMAIN,emby.carlos.trade
   - DOMAIN,emby.carlos.trade
