@@ -11,3 +11,4 @@ payload:
   - DOMAIN,www.imdb.com
   - DOMAIN,zh.m.wikipedia.org
   - DOMAIN,api.sprig.com
+  - DOMAIN,wiki.metacubex.one
