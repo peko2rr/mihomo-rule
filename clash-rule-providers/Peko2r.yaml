@@ -8,14 +8,14 @@ unified-delay: true # 统一延迟 # 更换延迟计算方式,去除握手等额
 tcp-concurrent: true # TCP并发
 
 geodata-mode: true        #使用geoip.dat数据库(默认：false使用mmdb数据库)
-geodata-loader: standard
+geodata-loader: standard    #小内存设备使用memconservative
 geo-auto-update: true
 geo-update-interval: 48
 # 自定 GEO 下载地址
 geox-url:
-  geoip: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
-  geosite: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
+  geoip: "https://mirror.ghproxy.com/github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  geosite: "https://mirror.ghproxy.com/github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://mirror.ghproxy.com/github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
   
 # 匹配 进程 always/strict/off
 find-process-mode: strict     #控制是否让 Clash 去匹配进程(路由器设置为'off')
@@ -40,10 +40,35 @@ tun:
   auto-redirect: true
   auto-detect-interface: true
 
+# 流量嗅探
+sniffer:
+  enable: true
+  force-dns-mapping: false
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+  skip-domain:
+    - "dlg.io.mi.com"
+    - "+.push.apple.com"
+    - "+.apple.com"
+    - "Mijia Cloud"
+
 dns:
   enable: true
-  listen: 127.0.0.1:8853
+  listen: :23453
   ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 8.8.8.8
   respect-rule: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -53,16 +78,13 @@ dns:
     - "+.local"
     - geosite:private
     - geosite:cn
-
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
   proxy-server-nameserver:
     - 223.5.5.5
     - 119.29.29.29
   nameserver:               #默认国内DNS服务器，支持udp/tcp/dot/doh/doq
     - 223.5.5.5
     - 119.29.29.29
+    - 180.76.76.76
   nameserver-policy:
     "ruLe-set:Download,applications,private,cn_domain,SteamCN,GameDownloadCN,Direct":
     - 223.5.5.5
@@ -73,15 +95,14 @@ dns:
 
 
 proxies:
-
 proxy-groups-config:
-  Streamf: &Streamf "(?=.*JP)(?=.*YXVM)|Hinet-0.5倍率"
-  Embyf: &Embyf "(?=.*HK)(?=.*Claw)|HK-A-YXVM-0.1倍率|US-A-Sixty-0.1倍率"
-  HK: &HK "香港|(?=.*Hong Kong)(?=.*TKV)"
-  SG: &SG "新加坡|(?=.*Singapore)(?=.*TKV)"
+  Streamf: &Streamf "HK-A-YXVM-0.1倍率|(?=.*JP)(?=.*YXVM)|Hinet-0.5倍率"
+  Embyf: &Embyf "(?=.*HK)(?=.*Claw)|HK-A-YXVM-0.1倍率|US-A-Sixty-0.1倍率|SG-A-YXVM-1.0倍率"
+  HK: &HK "香港|(?=.*Hong Kong)(?=.*TKV)|(?=.*Hong Kong)(?=.*0.2)|(?=.*Hong Kong)(?=.*0.4)"
+  SG: &SG "新加坡|(?=.*Singapore)(?=.*TKV)|(?=.*Singapore)(?=.*0.2)"
   JP: &JP "日本|(?=.*Japan)(?=.*TKV)"
   TW: &TW "台湾|(?=.*Taiwan)(?=.*HA)|(?=.*0.2)(?=.*Taiwan)(?=.*512)|(?=.*0.4)(?=.*Taiwan)(?=.*512)"
-  US: &US "美国|(?=.*United States)(?=.*TKV)"
+  US: &US "美国|(?=.*United States)(?=.*TKV)|(?=.*US)(?=.*0.1)|(?=.*US)(?=.*0.5)|(?=.*US)(?=.*0.5)|(?=.*US)(?=.*0.8)"
   EU: &EU "荷兰|德国"
   KR: &KR "韩国"
   HKIPLC: &HKIPLC "深港|(?=.*Hong Kong)(?=.*IPLC)(?=.*512)|HKBN"
@@ -91,33 +112,43 @@ proxy-groups-config:
   USIPLC: &USIPLC "(?=.*United States)(?=.*沪IPLC)(?=.*512)"
   Ayanami_512G: &Ayanami_512G "512"
   CTC-02: &CTC-02 "ᏟͲᏟ2"
-  ACA-family: &ACA-family "𝒜𝒞𝒜"
   TKV: &TKV "TKV"
   p: &p { interval: 300, tolerance: 60, include-all-providers: true, url: 'http://connectivitycheck.gstatic.com/generate_204', lazy: true}
 
-#订阅
 proxy-providers:
   PEKO1:
     type: http
-    url: 
+    url: https://sub.sesexiaozhan.top/api/v1/client/subscribe?token=ff719778072b82d7b517d20a071eb569
+    interval: 86400
+    override:
+      additional-suffix: " [512]❀𝒜𝓎𝒶𝓃𝒶𝓂𝒾❀"
+      proxy-name:
+      - pattern: "沪日"
+        target: "沪"
+      - pattern: " 0.2"
+        target: "0.2"
+      - pattern: "  IPLC"
+        target: "IPLC"
+    exclude-filter: "剩余流量|套餐到期"
+    exclude-type:      #不支持正则表达式，通过 | 分割，根据节点类型排除
     path:
-
   PEKO2:
     type: http
-    url: 
+    url: https://47.115.49.124:9999/api/v1/client/subscribe?token=70a186fc831facb41e92e54d71a23a93
     interval: 86400
+    override:
+      additional-suffix: " ❀ᏟͲᏟ2❀"
+    exclude-filter: "2.0|10.0|1.5"
+    exclude-type:
     path:
-
   PEKO3:
     type: http
-    url: 
+    url: https://portal.tkv.one/modules/servers/V2RaySocks/subscribe/?sid=5102&token=b1e8e65f24c5&app=clashmeta
     interval: 86400
-    path:
-
-  PEKO4:
-    type: http
-    url: 
-    interval: 86400
+    override:
+      additional-suffix: " TKV"
+    exclude-filter:
+    exclude-type:
     path:
 
 proxy-groups:
@@ -125,150 +156,129 @@ proxy-groups:
     name: Proxy,
     type: select,
     proxies: [HK, JP, TW, SG, US, EU, KR, SG IPLC, JP IPLC, TW IPLC, HK IPLC, US IPLC, select1, select2, DIRECT], 
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Proxy.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Proxy.png}
   - {
     name: Stream,
     type: select,
     proxies: [Stream专用, HK, JP, TW, US, EU, KR, SG IPLC, select1, select2],
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
-  }
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png}
   - {
     name: Telegram,
     type: select,
     proxies: [SG, SG IPLC, HK,JP, TW, US, EU, KR, select1, select2],
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Telegram.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Telegram.png}
   - {
     name: Emby,
     type: select,
     proxies: [Emby专用, Stream专用, DIRECT, SG, HK, JP, TW, US, EU, KR, select1, select2],
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Emby.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Emby.png}
   - {
     name: OpenAi,
     type: select,
     proxies: [US IPLC, US, JP IPLC, HK IPLC, SG IPLC, TW, HK, JP, SG, KR, select1, select2],
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png}
   - {
     name: Spotify,
     type: select,
     proxies: [US, DIRECT, TW, HK IPLC, HK, JP, SG, KR, select1, select2],
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Spotify.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Spotify.png}
   - {
     name: Game,
     type: select,
     proxies: [HK, DIRECT, TW, JP, SG, US, KR, Proxy, select1, select2], 
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Game.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Game.png}
   - {
     name: E-h,
     type: select,
     proxies: [Proxy, US, TW IPLC, HK IPLC, JP IPLC, SG IPLC, US IPLC, DIRECT, select1, select2], 
-    icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/E-Hentai.png
-  }
+    icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/E-Hentai.png}
   - {
     name: Google,
     type: select,
     proxies: [HK, US IPLC, SG, US, TW, JP, KR, select1, select2], 
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Google.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Google.png}
   - {
     name: YouTube,
     type: select,
     proxies: [Stream, TW, HK, JP, SG, US, KR, select1, select2], 
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Youtube.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Youtube.png}
   - {
     name: AI,
     type: select,
     proxies: [US, JP IPLC, US IPLC, HK IPLC, SG IPLC, TW, HK, JP, SG, KR, select1, select2],
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png
-  }
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/OpenAI.png}
   - {
     name: Netflix,
     type: select,
     proxies: [Stream, TW, HK, JP, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Netflix.png,
-    hidden: true
-  }
+    hidden: true}
   - {
     name: Twitch,
     type: select,
     proxies: [Stream, TW, HK, JP, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitch.png,
-    hidden: false
-  }
+    hidden: false}
   - {
     name: Disney,
     type: select,
     proxies: [Stream, TW, HK, JP, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Disney+.png,
-    hidden: true
-  }
+    hidden: true}
   - {
     name: Discord,
     type: select,
-    proxies: [Stream, TW, HK, JP, SG, US, KR, select1, select2], 
+    proxies: [Proxy, TW, HK, JP, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Discord.png,
-    hidden: true
-  }
+    hidden: true}
   - {
     name: Nintendo,
     type: select,
     proxies: [Proxy, TW, HK, JP, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/peko2rr/mihomo-rule/master/icon/Nintendo.png,
-    hidden: true
-  }
+    hidden: true}
   - {
     name: Microsoft,
     type: select,
     proxies: [Proxy, TW, HK, JP, HK IPLC, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Microsoft.png,
-    hidden: true
-  }
+    hidden: true}
   - {
     name: Apple,
     type: select,
     proxies: [DIRECT, Proxy, TW, HK, JP, SG, US, KR, select1, select2], 
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Apple.png,
-    hidden: false
-  }
+    hidden: true}
+  - {
+    name: Bahamut,
+    type: select,
+    proxies: [TW, HK, JP, SG, US, KR, select1, select2], 
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png,
+    hidden: false}
+  - {
+    name: OneDrive,
+    type: select,
+    proxies: [Proxy,TW, HK, HK IPLC, JP, SG, US, KR, select1, select2], 
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Microsoft.png,
+    hidden: true}
   - {
     name: select1,
     type: select,
     include-all-providers: true,
     lazy: true,
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Auto.png,
-    hidden: false
-  }
+    hidden: false}
   - {
     name: select2,
     type: select,
     include-all-providers: true,
     lazy: true,
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Auto.png,
-    hidden: false
-  }
-  - {
-    name: Bahamut,
-    type: select,
-    proxies: [TW, HK, JP, SG, US, KR, select1, select2], 
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png,
-    hidden: false
-  }
-  - {
-    name: OneDrive,
-    type: select,
-    proxies: [Proxy,TW, HK, HK IPLC, JP, SG, US, KR, select1, select2], 
-    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Microsoft.png,
-    hidden: true
-  }
+    hidden: false}
+  - {name: Match, type: select, proxies: [DIRECT, Proxy, TW, HK, JP, SG, US, KR, select1, select2], hidden: false, icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Final01.png}
   - {name: Direct, type: select, proxies: [DIRECT, Proxy], hidden: false, icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Direct.png}
   - {name: AD, type: select, proxies: [REJECT, DIRECT], hidden: false, icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/AdBlock.png}
-  - {name: Stream专用, !!merge <<: *p, type: fallback, filter: *Streamf, hidden: false, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png}
+  - {name: Stream专用, !!merge <<: *p, type: url-test, filter: *Streamf, hidden: false, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png}
   - {name: Emby专用, !!merge <<: *p, type: url-test, filter: *Embyf, hidden: false, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png}
   - {name: HK, !!merge <<: *p, type: url-test, filter: *HK, hidden: false, icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/HK02.png}
   - {name: SG, !!merge <<: *p, type: url-test, filter: *SG, hidden: false, icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/SG.png}
@@ -284,9 +294,7 @@ proxy-groups:
   - {name: US IPLC, !!merge <<: *p, type: fallback, filter: *USIPLC, hidden: true, icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png}
   - {name: Ayanami_512G, !!merge <<: *p, type: fallback, filter: *Ayanami_512G, hidden: false, icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Sese.png}
   - {name: CTC-02, !!merge <<: *p, type: fallback, filter: *CTC-02, hidden: false, icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/CTC.png}
-  - {name: ACA-family, !!merge <<: *p, type: fallback, filter: *ACA-family, hidden: false, icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png}
   - {name: TKV, !!merge <<: *p, type: fallback, filter: *TKV, hidden: false, icon: https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png}
-
 
 rule-anchor :
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
@@ -326,10 +334,9 @@ rule-providers:
   applications: {!!merge <<: *class, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"}
   ProxyTest: {!!merge <<: *class, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/peko2rr/mihomo-rule/refs/heads/master/ProxyTest.yaml"}
 
-  google_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
-  telegram_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
-  netflix_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
-
+  google_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  telegram_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  netflix_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
 
 rules:
  - RULE-SET,AWAvenue,AD
@@ -365,4 +372,4 @@ rules:
  - RULE-SET,ProxyTest,select1
  - GEOIP,LAN,DIRECT,no-resolve
  - RULE-SET,cn_domain,DIRECT
- - MATCH,Proxy
+ - MATCH,Match
