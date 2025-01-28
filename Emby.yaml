@@ -1,6 +1,8 @@
 payload:
 #Emby进程
   - PROCESS-NAME,electron.exe
+#收束世界线
+  - DOMAIN,tv.worldline.space
 #Nebula-Media
   - DOMAIN,emby.nebula-media.org
 #Plumber
