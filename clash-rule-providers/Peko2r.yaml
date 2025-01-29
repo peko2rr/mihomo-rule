@@ -43,7 +43,7 @@ tun:
 # 流量嗅探
 sniffer:
   enable: true
-  force-dns-mapping: false
+  force-dns-mapping: true
   parse-pure-ip: true
   override-destination: true
   sniff:
@@ -86,7 +86,7 @@ dns:
     - 119.29.29.29
     - 180.76.76.76
   nameserver-policy:
-    "ruLe-set:Download,applications,private,cn_domain,SteamCN,GameDownloadCN,Direct":
+    "ruLe-set:Download,applications,private,cn_site,SteamCN,GameDownloadCN,Direct":
     - 223.5.5.5
     - 119.29.29.29
     "rule-set:proxy,myself":
@@ -337,11 +337,13 @@ rule-providers:
   GameDownloadCN: {!!merge <<: *class, url: "https://ghfast.top/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml"}
   Direct: {!!merge <<: *class, url: "https://ghfast.top/raw.githubusercontent.com/peko2rr/mihomo-rule/master/Direct.yaml"}
   proxy: {!!merge <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
-  cn_domain: {!!merge <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  cn_site: {!!merge <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   Download: {!!merge <<: *class, url: "https://ghfast.top/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Download/Download.yaml"}
   applications: {!!merge <<: *class, url: "https://ghfast.top/raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"}
   ProxyTest: {!!merge <<: *class, url: "https://ghfast.top/raw.githubusercontent.com/peko2rr/mihomo-rule/refs/heads/master/ProxyTest.yaml"}
+  Ad: {!!merge <<: *qcy, url: "https://ghfast.top/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"}
 
+  Ad_ip: {!!merge <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/ad.mrs"}
   google_ip: {!!merge <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
   telegram_ip: {!!merge <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   twitter_ip: {!!merge <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs"}
@@ -382,5 +384,7 @@ rules:
  - RULE-SET,proxy,Proxy
  - RULE-SET,ProxyTest,select1
  - GEOIP,LAN,DIRECT,no-resolve
- - RULE-SET,cn_domain,DIRECT
+ - RULE-SET,cn_site,DIRECT
+ - RULE-SET,Ad,AD
+ - RULE-SET,Ad_ip,AD,no-resolve
  - MATCH,Match
