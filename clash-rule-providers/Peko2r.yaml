@@ -77,7 +77,7 @@ dns:
     - "+.lan"
     - "+.local"
     - geosite:private
-    - geosite:cn_site
+    - geosite:cn
   proxy-server-nameserver:
     - 223.5.5.5
     - 119.29.29.29
