@@ -8,7 +8,7 @@ unified-delay: true # 统一延迟 # 更换延迟计算方式,去除握手等额
 tcp-concurrent: true # TCP并发
 
 geodata-mode: true        #使用geoip.dat数据库(默认：false使用mmdb数据库)
-geodata-loader: standard    #小内存设备使用memconservative
+geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 48
 # 自定 GEO 下载地址
@@ -18,7 +18,7 @@ geox-url:
   mmdb: "https://mirror.ghproxy.com/github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
   
 # 匹配 进程 always/strict/off
-find-process-mode: strict     #控制是否让 Clash 去匹配进程(路由器设置为'off')
+find-process-mode: strict     #控制是否让 Clash 去匹配进程
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 30
