@@ -168,6 +168,11 @@ proxy-groups:
     proxies: [SG, SG IPLC, HK,JP, TW, US, EU, KR, select1, select2],
     icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Telegram.png}
   - {
+    name: Twitter,
+    type: select,
+    proxies: [SG, SG IPLC, HK,JP, TW, US, EU, KR, select1, select2],
+    icon: https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/Twitter.png}
+  - {
     name: Emby,
     type: select,
     proxies: [Emby专用, Stream专用, DIRECT, SG, HK, JP, TW, US, EU, KR, select1, select2],
@@ -309,6 +314,7 @@ rule-providers:
   E-h: {!!merge <<: *class, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/peko2rr/mihomo-rule/master/E-h.yaml"}
   OneDrive: {!!merge <<: *domain, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
   Telegram: {!!merge <<: *domain, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  Twitter: {!!merge <<: *domain, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"}
   Discord: {!!merge <<: *domain, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs"}
   OpenAi: {!!merge <<: *domain, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs"}
   AI: {!!merge <<: *class, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/peko2rr/mihomo-rule/master/AI.yaml"}
@@ -336,6 +342,7 @@ rule-providers:
 
   google_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
   telegram_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  twitter_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs"}
   netflix_ip: {!!merge <<: *ip, url: "https://mirror.ghproxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
 
 rules:
@@ -358,6 +365,8 @@ rules:
  - RULE-SET,Game,Game
  - RULE-SET,Discord,Discord
  - RULE-SET,OpenAi,OpenAi
+ - RULE-SET,Twitter,Twitter
+ - RULE-SET,twitter_ip,Twitter,no-resolve
  - RULE-SET,AI,AI
  - RULE-SET,Netflix,Netflix
  - RULE-SET,netflix_ip,Netflix,no-resolve
