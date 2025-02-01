@@ -96,7 +96,7 @@ dns:
 
 proxies:
 proxy-groups-config:
-  Streamf: &Streamf "(?=.*HK)(?=.*Light)|(?=.*SG)(?=.*YXVM)|(?=.*TW)(?=.*Hinet)|(?=.*JP)(?=.*xTom)|(?=.*US)(?=.*xTom)"
+  Streamf: &Streamf "(?=.*SG)(?=.*YXVM)|(?=.*TW)(?=.*Hinet)|(?=.*JP)(?=.*xTom)|(?=.*US)(?=.*xTom)"
   Embyf: &Embyf "(?=.*HK)(?=.*Claw)|HK-A-YXVM-0.1倍率|US-A-Sixty-0.1倍率|SG-A-YXVM-1.0倍率"
   HK: &HK "香港|(?=.*Hong Kong)(?=.*TKV)|(?=.*HongKong)(?=.*0.2)|(?=.*Hong Kong)(?=.*0.4)"
   SG: &SG "新加坡|(?=.*Singapore)(?=.*TKV)|(?=.*Singapore)(?=.*0.2)"
