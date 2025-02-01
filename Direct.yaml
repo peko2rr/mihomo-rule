@@ -32,3 +32,4 @@ payload:
   - PROCESS-NAME,WMExternal.exe
   - PROCESS-NAME,HeyboxChat.exe
   - DOMAIN,service-aggregation-layer-subs.juno.ea.com
+  - DOMAIN,cn.download.nvidia.com
